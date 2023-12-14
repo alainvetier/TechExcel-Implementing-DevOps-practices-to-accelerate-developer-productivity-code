@@ -9,3 +9,12 @@ jobs:
         run: echo "Step 1 complete!"
       - name: Step 2
         run: echo "Step 2 complete!"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cowsay
+        uses: actions/hello-world-docker-action@v1
+        with:
+          who-to-greet: "Ready for prod–ship it!"
+          color: "magenta"
+          
