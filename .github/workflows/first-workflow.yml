@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cowsay
-        uses: actions/hello-world-docker-action@v1
+        uses: mscoutermarsh/cowsays-action@v1
         with:
-          who-to-greet: "Ready for prod–ship it!"
-          color: "magenta"
+          # What does the cow say?
+         text:  Ship it!!!!!
+          # Color of your cow
+         color: magenta
           
