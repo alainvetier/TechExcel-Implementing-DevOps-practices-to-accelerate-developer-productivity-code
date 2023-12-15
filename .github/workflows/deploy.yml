@@ -1,0 +1,23 @@
+
+name: Deploy Infrastructure
+on:
+    workflow_dispatch:
+
+env:
+    targetEnv: dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Login via Az CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./InfrastructureAsCode/main.bicep
+        parameters: environment=${{ env.targetEnv }}
