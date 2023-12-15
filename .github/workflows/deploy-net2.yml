@@ -1,5 +1,5 @@
 
-name: .NET CI
+name: .NET CI with Docker
 
 env:
   registryName: yddrcliyzeijimpnpreg.azurecr.io
